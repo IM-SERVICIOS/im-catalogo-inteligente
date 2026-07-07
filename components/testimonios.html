@@ -1,0 +1,35 @@
+<!-- ============================================================
+     COMPONENTE: Testimonios — NO MOSTRAR
+     ------------------------------------------------------------
+     Por instrucción explícita del documento maestro, esta sección
+     NUNCA debe mostrarse públicamente ni contener testimonios
+     inventados. Este archivo solo deja lista la ESTRUCTURA para
+     cuando IM proporcione testimonios reales y autorizados.
+
+     - No está enlazado en el menú de navegación.
+     - Solo se inyecta en el DOM si IM_CONFIG.features.testimonios === true
+       (ver js/components-loader.js). Ese flag está en `false` y así
+       debe permanecer hasta contar con contenido real aprobado.
+     - Aun si se inyectara por error, queda con hidden y aria-hidden
+       como segunda barrera de seguridad.
+     ============================================================ -->
+<section id="testimonios" class="panel" aria-labelledby="testimonios-title" hidden aria-hidden="true">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="testimonios-title">Lo que dicen nuestros clientes</h2>
+    </div>
+    <!--
+      Estructura de referencia para cuando existan testimonios reales:
+
+      <div class="testimonios-grid">
+        <blockquote class="testimonio-card">
+          <p>"[Testimonio real y autorizado por el cliente]"</p>
+          <footer>
+            <strong>[Nombre real del cliente]</strong>
+            <span>[Empresa / giro, si el cliente autoriza mencionarlo]</span>
+          </footer>
+        </blockquote>
+      </div>
+    -->
+  </div>
+</section>

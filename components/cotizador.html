@@ -1,0 +1,150 @@
+<!-- ============================================================
+     COMPONENTE: Cotizador Inteligente IM
+     Se inyecta en #cotizador (index.html)
+     Controlado por IM_CONFIG.features.cotizadorInteligente
+     Lógica en js/cotizador.js — este archivo solo aporta el marcado.
+     ============================================================ -->
+<section id="cotizador" class="panel" aria-labelledby="cotizador-title">
+  <div class="container">
+    <div class="section-head">
+      <span class="hero-eyebrow">Cotizador Inteligente IM</span>
+      <h2 id="cotizador-title">Cuéntanos de tu negocio y te asesoramos</h2>
+      <p>No es un formulario más: es el primer paso de una asesoría a tu medida. Te tomará menos de 2 minutos.</p>
+    </div>
+
+    <div class="cotizador-box">
+
+      <!-- Barra de progreso -->
+      <div class="cotizador-progress" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1" id="cotizadorProgressWrap">
+        <div class="cotizador-progress-bar" id="cotizadorProgressBar" style="width:25%"></div>
+      </div>
+      <div class="cotizador-steps-label">
+        <span class="step-dot active" data-step-label="1">1. Contacto</span>
+        <span class="step-dot" data-step-label="2">2. Tu negocio</span>
+        <span class="step-dot" data-step-label="3">3. Servicios</span>
+        <span class="step-dot" data-step-label="4">4. Confirmar</span>
+      </div>
+
+      <form id="cotizadorForm" novalidate>
+
+        <!-- PASO 1: Datos de contacto -->
+        <fieldset class="cotizador-step" data-step="1">
+          <legend>Datos de contacto</legend>
+          <div class="form-row">
+            <label for="q-nombre">Nombre completo *</label>
+            <input type="text" id="q-nombre" name="nombre" required autocomplete="name">
+          </div>
+          <div class="form-row two-col">
+            <div>
+              <label for="q-correo">Correo electrónico *</label>
+              <input type="email" id="q-correo" name="correo" required autocomplete="email">
+            </div>
+            <div>
+              <label for="q-telefono">Teléfono / WhatsApp *</label>
+              <input type="tel" id="q-telefono" name="telefono" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div>
+              <label for="q-ciudad">Ciudad *</label>
+              <input type="text" id="q-ciudad" name="ciudad" required>
+            </div>
+            <div>
+              <label for="q-estado">Estado *</label>
+              <input type="text" id="q-estado" name="estado" required>
+            </div>
+          </div>
+          <div class="cotizador-actions">
+            <span></span>
+            <button type="button" class="btn primary" data-action="next">Siguiente</button>
+          </div>
+        </fieldset>
+
+        <!-- PASO 2: Tu negocio -->
+        <fieldset class="cotizador-step" data-step="2" hidden>
+          <legend>Tu negocio</legend>
+          <div class="form-row two-col">
+            <div>
+              <label for="q-empresa">Nombre de tu empresa / negocio</label>
+              <input type="text" id="q-empresa" name="empresa">
+            </div>
+            <div>
+              <label for="q-rfc">RFC (opcional)</label>
+              <input type="text" id="q-rfc" name="rfc" maxlength="13">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="q-tipo">Tipo de contribuyente *</label>
+            <select id="q-tipo" name="tipoContribuyente" required>
+              <option value="" selected disabled>Selecciona una opción…</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="q-tamano">Tamaño de tu operación *</label>
+            <select id="q-tamano" name="tamanoOperacion" required>
+              <option value="" selected disabled>Selecciona una opción…</option>
+            </select>
+          </div>
+          <div class="cotizador-actions">
+            <button type="button" class="btn outline" data-action="prev">Anterior</button>
+            <button type="button" class="btn primary" data-action="next">Siguiente</button>
+          </div>
+        </fieldset>
+
+        <!-- PASO 3: Servicios de interés -->
+        <fieldset class="cotizador-step" data-step="3" hidden>
+          <legend>Servicios de interés</legend>
+          <p class="form-hint">Selecciona uno o varios servicios (puedes elegir más de uno).</p>
+          <div class="checkbox-grid" id="q-servicios-grid" role="group" aria-label="Servicios de interés"></div>
+          <div class="form-row">
+            <label for="q-presupuesto">Presupuesto estimado</label>
+            <select id="q-presupuesto" name="presupuesto">
+              <option value="" selected disabled>Selecciona una opción…</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="q-comentarios">Comentarios (opcional)</label>
+            <textarea id="q-comentarios" name="comentarios" rows="3" placeholder="Cuéntanos cualquier detalle adicional que nos ayude a asesorarte mejor."></textarea>
+          </div>
+          <div class="cotizador-actions">
+            <button type="button" class="btn outline" data-action="prev">Anterior</button>
+            <button type="button" class="btn primary" data-action="next">Revisar solicitud</button>
+          </div>
+        </fieldset>
+
+        <!-- PASO 4: Confirmación -->
+        <fieldset class="cotizador-step" data-step="4" hidden>
+          <legend>Confirma tu solicitud</legend>
+          <div class="resumen-box" id="q-resumen"></div>
+          <div class="cotizador-actions">
+            <button type="button" class="btn outline" data-action="prev">Anterior</button>
+            <button type="submit" class="btn primary" id="q-enviar">Enviar solicitud</button>
+          </div>
+        </fieldset>
+
+      </form>
+
+      <!-- Estado de envío -->
+      <div id="cotizadorEnviando" class="cotizador-feedback" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Enviando tu solicitud…</p>
+      </div>
+
+      <!-- Confirmación final con folio -->
+      <div id="cotizadorExito" class="cotizador-feedback" hidden>
+        <div class="folio-card">
+          <span class="folio-label">Tu folio de seguimiento</span>
+          <strong id="folioNumero">IM-00000000-0000</strong>
+        </div>
+        <p>Recibimos tu solicitud. Te enviamos una copia de tu folio a tu correo, y nuestro equipo también fue notificado para darte seguimiento personalizado.</p>
+        <a id="q-whatsappFolio" class="btn primary lg" href="#" target="_blank" rel="noopener">Continuar por WhatsApp con mi folio</a>
+      </div>
+
+      <div id="cotizadorError" class="cotizador-feedback" hidden>
+        <p>No pudimos enviar tu solicitud automáticamente. No te preocupes: escríbenos directo por WhatsApp y con gusto te atendemos de inmediato.</p>
+        <a id="q-whatsappError" class="btn primary lg" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+
+    </div>
+  </div>
+</section>

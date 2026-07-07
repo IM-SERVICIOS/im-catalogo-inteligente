@@ -1,0 +1,54 @@
+<!-- ============================================================
+     COMPONENTE: Dashboards Inteligentes
+     Se inyecta en #dashboards (index.html) vía components-loader.js
+     Controlado por IM_CONFIG.features.dashboards
+     Basado en el servicio real "Dashboards / Graficados Interactivos"
+     ============================================================ -->
+<section id="dashboards" class="panel" aria-labelledby="dashboards-title">
+  <div class="container">
+    <div class="ecosistema-row reverse">
+
+      <div class="ecosistema-visual" aria-hidden="true">
+        <div class="dash-grid">
+          <div class="dash-card">
+            <span class="dash-label">Ingresos del mes</span>
+            <div class="dash-bars">
+              <span style="height:40%"></span><span style="height:65%"></span>
+              <span style="height:50%"></span><span style="height:80%"></span>
+              <span style="height:60%"></span><span style="height:90%"></span>
+            </div>
+          </div>
+          <div class="dash-card">
+            <span class="dash-label">Distribución de gastos</span>
+            <div class="dash-donut" style="--v:62"></div>
+          </div>
+          <div class="dash-card wide">
+            <span class="dash-label">Flujo de efectivo</span>
+            <svg viewBox="0 0 300 80" class="dash-line" preserveAspectRatio="none">
+              <polyline points="0,60 40,45 80,55 120,30 160,40 200,20 240,32 300,10" />
+            </svg>
+          </div>
+        </div>
+        <p class="mockup-caption">Ejemplo ilustrativo de un dashboard IM.</p>
+      </div>
+
+      <div class="ecosistema-copy">
+        <span class="hero-eyebrow">Beneficio exclusivo</span>
+        <h2 id="dashboards-title">Dashboards Inteligentes</h2>
+        <p class="lead-block">
+          Convertimos tus números en paneles visuales dinámicos y fáciles de leer,
+          adaptados a la medida de tu negocio, para que tomes decisiones sin depender
+          de hojas de cálculo interminables.
+        </p>
+        <ul class="check-list">
+          <li>Paneles ejecutivos con tus KPIs más importantes.</li>
+          <li>Gráficas de ingresos, gastos y flujo de efectivo actualizadas.</li>
+          <li>Indicadores clave de desempeño alineados a tus objetivos.</li>
+          <li>Visualizaciones pensadas para compartir con socios o inversionistas.</li>
+        </ul>
+        <a href="#cotizador" class="btn outline">Quiero un dashboard para mi negocio</a>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://im-servicios.github.io/CONTABLES/sitemap.xml

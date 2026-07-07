@@ -1,0 +1,25 @@
+{
+  "name": "IM Servicios Contables — Catálogo Inteligente",
+  "short_name": "IM Contable",
+  "description": "Servicios contables, administrativos y asesoría financiera con soluciones tecnológicas.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f4f1",
+  "theme_color": "#1f3b52",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

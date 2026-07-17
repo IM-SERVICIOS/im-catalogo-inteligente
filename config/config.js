@@ -46,13 +46,19 @@ const IM_CONFIG = {
   },
 
   // ------------------------------------------------------------
-  // COTIZADOR INTELIGENTE IM (Fase 2)
+  // COTIZADOR INTELIGENTE IM (Fase 2.5 — Supabase)
   // ------------------------------------------------------------
   cotizador: {
-    // Prefijo de folio: IM-AAAAMMDD-0001
+    // Prefijo de folio: IM-AAAAMMDD-0001. El folio REAL ya no se genera
+    // aquí ni en el navegador: lo genera el servidor (Supabase, ver
+    // supabase/schema.sql). Este prefijo solo se usa para el folio de
+    // respaldo temporal si Supabase no responde (ver js/cotizador.js).
     folioPrefijo: "IM",
-    // Servicios de interés que se ofrecen como opción en el cotizador
-    // (deben coincidir 1:1 con los servicios reales listados en #servicios)
+    // El catálogo real de servicios (id + nombre) vive en
+    // data/services.json — así el id (ej. "IM-001") es estable aunque
+    // el nombre del servicio cambie de redacción más adelante.
+    // serviciosDisponibles ya NO se usa como fuente; se deja aquí solo
+    // como respaldo por si data/services.json fallara al cargar.
     serviciosDisponibles: [
       "Contabilidad para pequeños negocios y personas con actividad empresarial",
       "Nómina y RRHH",
@@ -65,6 +71,19 @@ const IM_CONFIG = {
     tiposContribuyente: ["Persona Física", "Persona Moral"],
     tamanosOperacion: ["Emprendedor / Independiente", "1 a 5 empleados", "6 a 20 empleados", "Más de 20 empleados"],
     rangosPresupuesto: ["Aún no lo sé / quiero orientación", "Menos de $2,000 MXN/mes", "$2,000 - $5,000 MXN/mes", "Más de $5,000 MXN/mes"]
+  },
+
+  // ------------------------------------------------------------
+  // SUPABASE — persistencia real de cotizaciones (Fase 2.5)
+  // ------------------------------------------------------------
+  // Estos valores son PÚBLICOS a propósito: la anon key de Supabase
+  // está diseñada para vivir en el frontend. La seguridad real la dan
+  // las políticas de Row Level Security (RLS) configuradas en la tabla
+  // "cotizaciones" (solo permiten INSERT público, nunca SELECT/UPDATE/DELETE).
+  supabase: {
+    activo: true, // pon en false si quieres desactivar el guardado sin tocar el resto
+    url: "https://dpuhosakxhxbhjpqahas.supabase.co",
+    anonKey: "sb_publishable_sAd0vIgGzDemKrgm-XuutA_o8q_TIXV"
   },
 
   // ------------------------------------------------------------

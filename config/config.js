@@ -82,8 +82,8 @@ const IM_CONFIG = {
   // "cotizaciones" (solo permiten INSERT público, nunca SELECT/UPDATE/DELETE).
   supabase: {
     activo: true, // pon en false si quieres desactivar el guardado sin tocar el resto
-    url: "https://TU-PROYECTO.supabase.co",   // <-- reemplazar con tu Project URL
-    anonKey: "TU_ANON_KEY_PUBLICA"             // <-- reemplazar con tu anon/public key
+    url: "https://dpuhosakxhxbhjpqahas.supabase.co",
+    anonKey: "sb_publishable_sAd0vIgGzDemKrgm-XuutA_o8q_TIXV"
   },
 
   // ------------------------------------------------------------

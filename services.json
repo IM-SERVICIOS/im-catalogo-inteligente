@@ -1,0 +1,9 @@
+[
+  { "id": "IM-001", "nombre": "Contabilidad para pequeños negocios y personas con actividad empresarial" },
+  { "id": "IM-002", "nombre": "Nómina y RRHH" },
+  { "id": "IM-003", "nombre": "Impuestos" },
+  { "id": "IM-004", "nombre": "Facturación Electrónica" },
+  { "id": "IM-005", "nombre": "Asesorías Especializadas" },
+  { "id": "IM-006", "nombre": "Dashboards / Graficados Interactivos" },
+  { "id": "IM-007", "nombre": "Plantillas e Indicadores" }
+]

@@ -234,60 +234,28 @@
 </head>
 <body>
 
-    <!-- NAV EXACTO DEL SITIO (COMO EN INDEX.HTML) -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <a class="brand" href="index.html">
-            <img src="images/icono-sobre.svg" alt="logo" class="sobre-icon-img">   IM <small>Servicios Contables y Administrativos</small>
-            </a>
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/icons/icono-sobre.svg" alt="" class="brand-icon" aria-hidden="true">
+      <span>IM <small>Servicios Contables y Administrativos</small></span>
+    </a>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
-                <li><a href="index.html#servicios" class="nav-link">Servicios</a></li>
-                <li><a href="index.html#sobre" class="nav-link">Sobre Nosotros</a></li>
-                <!-- MEGA MENÚ -->
-                <li class="nav-item dropdown">
-                    <a href="javascript:void(0)" class="nav-link" id="megaMenuBtn">
-                    Catálogo <span class="arrow">▾</span>
-                </a>
-                <div class="mega-menu">
-                    <div class="mega-column">
-                        <div class="mega-header">
-                            <span class="icon">💼</span> <h3>PRODUCTOS Y SRVICIOS</h3>
-                    </div>
-                    <a href="productos.html#gratis">Plantillas Gratis</a>
-                    <a href="productos.html#premium">Plantillas Premium</a>
-                    <a href="#contacto">Asesoría Directa</a>
-                    <a href="productos.html#servicios-fiscales">Declaraciones de Impuestos </a>
-                    <a href="index.html#servicios">Facturación en SAT</a>
-                </div>
-                <div class="mega-divider"></div>
-                <div class="mega-column">
-                    <div class="mega-header">
-                    <span class="icon">🌐</span> <h3>COMUNIDAD</h3>
-                </div>
-                <a href="comunidad.html#blog">Blog Contable</a>
-                <a href="comunidad.html#youtube">Canal de YouTube</a>
-                <a href="#contacto">Contacto</a>
-                <a href="#">Preguntas Frecuentes</a>
-                    
-                 <div class="mega-header spacer">
-                    <span class="icon">🎓</span> 
-                    <h3 class="highlight">ACADEMIA IM</h3>
-                 </div>
-                <a href="academia.html">Inicio Academia</a>
-                <a href="academia.html#manuales">Manuales de Uso</a>
-                <a href="academia.html#blog-academia">Blog Académico</a>
-                <a href="academia.html#preguntasfrecuentes-academia">Preguntas Frecuentes</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
 
-            </div>
-        </div>
-    </li>
-                <li><a href="#contacto" class="cta nav-link" id="cotizarBtn">Cotízate</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio" class="nav-link">Inicio</a></li>
+      <li><a href="#sobre" class="nav-link">Quiénes Somos</a></li>
+      <li><a href="#servicios" class="nav-link">Servicios</a></li>
+      <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
+      <li><a href="#faq" class="nav-link">Preguntas Frecuentes</a></li>
+      <li><a href="#cotizador" class="nav-link nav-cta">Cotízate</a></li>
+    </ul>
+  </div>
+</nav>
     <!-- HERO -->
     <section class="hero-productos">
         <div class="container">

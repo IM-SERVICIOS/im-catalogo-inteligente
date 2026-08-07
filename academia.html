@@ -1,272 +1,434 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Academia IM | Formación Contable</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia IM | Formación Contable y Excel Profesional</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --bg: #f5f1ee;
+            --panel: #ffffff;
+            --text: #111;
+            --muted: #736b66;
+            --accent: #c9b8ad;
+            --accent-2: #e8e2de;
+            --primary: #1f3b52;
+            --primary-contrast: #fff;
+            --radius: 14px;
+        }
 
-<meta name="description" content="Academia IM: cursos de Excel profesional, manuales de uso y blog académico para contadores, empresarios y emprendedores.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://im-servicios.github.io/CONTABLES/academia.html">
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: Inter, system-ui, -apple-system, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
 
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-<meta name="theme-color" content="#1f3b52">
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        .hero-academia {
+            background: var(--primary);
+            color: var(--primary-contrast);
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+            animation: fadeInUp 0.4s ease;
+        }
+        .hero-academia h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--primary-contrast);
+        }
+        .hero-academia p {
+            font-size: 1.2rem;
+            color: var(--accent-2);
+            max-width: 750px;
+            margin: 0 auto;
+        }
 
-<link rel="stylesheet" href="css/styles.css">
+        .seccion-academia {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .seccion-academia h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .seccion-academia p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--panel);
+            border-radius: var(--radius);
+            border: 1px solid var(--accent);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(31,59,82,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(31,59,82,0.12);
+            border-color: var(--primary);
+        }
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .card:hover .card-img img {
+            transform: scale(1.06);
+        }
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-content h4 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .card-content p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .btn-academia {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--primary-contrast);
+            text-align: center;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-academia:hover {
+            opacity: 0.92;
+            transform: translateY(-2px);
+        }
+
+        /* Acordeón FAQ */
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .faq-item {
+            background: var(--panel);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(31,59,82,0.03);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 25px;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question span {
+            font-size: 1.4rem;
+            color: var(--muted);
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+            color: var(--primary);
+        }
+        .faq-answer {
+            padding: 0 25px 20px 25px;
+            color: var(--muted);
+            font-size: 1rem;
+            display: none;
+            line-height: 1.6;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        @media(max-width: 768px) {
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<a href="#contenido" class="skip-link">Saltar al contenido</a>
+    <!-- NAV EXACTO DEL SITIO -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a class="brand" href="index.html">
+            <img src="images/icono-sobre.svg" alt="logo" class="sobre-icon-img">   IM <small>Servicios Contables y Administrativos</small>
+            </a>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html">
-      <img src="assets/icons/icono-sobre.svg" alt="" class="brand-icon" aria-hidden="true">
-      <span>IM <small>Servicios Contables y Administrativos</small></span>
-    </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
-      <li><a href="index.html#servicios" class="nav-link">Servicios</a></li>
-      <li><a href="catalogo.html" class="nav-link">Catálogo</a></li>
-      <li><a href="productos.html" class="nav-link">Productos</a></li>
-      <li><a href="comunidad.html" class="nav-link">Comunidad</a></li>
-      <li><a href="index.html#cotizador" class="nav-link nav-cta">Cotízate</a></li>
-    </ul>
-  </div>
-</nav>
-
-<main id="contenido">
-
-  <header class="page-hero">
-    <div class="container">
-      <span class="breadcrumb"><a href="index.html">Inicio</a> · Academia IM</span>
-      <h1>Academia IM</h1>
-      <p>Capacitación profesional en herramientas digitales para contadores, empresarios y emprendedores.</p>
-    </div>
-  </header>
-
-  <!-- CURSOS DE EXCEL -->
-  <section class="panel" style="padding-top:24px;" aria-labelledby="cursos-title">
-    <div class="container">
-      <div class="section-head" style="max-width:760px;">
-        <h2 id="cursos-title">Cursos de Excel Profesional</h2>
-        <p>
-          En Academia IM impartimos cursos de Microsoft Excel enfocados en el uso práctico dentro del
-          mundo laboral, contable y empresarial. Nuestros cursos están diseñados tanto para personas
-          que comienzan desde cero como para usuarios que desean perfeccionar sus habilidades. Aprender
-          Excel hoy en día es una de las habilidades más valoradas en el mercado laboral, ya que permite
-          analizar información, automatizar procesos y tomar decisiones basadas en datos.
-        </p>
-      </div>
-
-      <h3 class="text-center" style="margin-bottom:24px;">Beneficios de aprender Excel</h3>
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="value-icon">💼</div>
-          <h3>Mundo laboral</h3>
-          <p>Excel es una de las herramientas más solicitadas en empresas. Dominarlo te permite destacar en áreas como contabilidad, administración, finanzas y análisis de datos.</p>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="index.html#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="productos.html" class="nav-link">Productos</a></li>
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link" id="megaMenuBtn">
+                    Catálogo <span class="arrow">▾</span>
+                </a>
+                <div class="mega-menu">
+                    <div class="mega-column">
+                        <div class="mega-header">
+                            <span class="icon">💼</span> <h3>PRODUCTOS Y SERVICIOS</h3>
+                    </div>
+                    <a href="productos.html#gratis">Plantillas Gratis</a>
+                    <a href="productos.html#premium">Plantillas Premium</a>
+                    <a href="index.html#contacto">Asesoría Directa</a>
+                    <a href="productos.html#servicios-fiscales">Declaraciones de Impuestos </a>
+                    <a href="productos.html#servicios-fiscales">Facturación en SAT</a>
+                </div>
+                <div class="mega-divider"></div>
+                <div class="mega-column">
+                    <div class="mega-header">
+                    <span class="icon">🌐</span> <h3>COMUNIDAD</h3>
+                </div>
+                <a href="comunidad.html#blog">Blog Contable</a>
+                <a href="comunidad.html#youtube">Canal de YouTube</a>
+                <a href="comunidad.html#faq">Preguntas Frecuentes</a>
+                    
+                 <div class="mega-header spacer">
+                    <span class="icon">🎓</span> 
+                    <h3 class="highlight">ACADEMIA IM</h3>
+                 </div>
+                <a href="academia.html">Inicio Academia</a>
+                <a href="academia.html#manuales">Manuales de Uso</a>
+                <a href="academia.html#blog-academia">Blog Académico</a>
+            </div>
         </div>
-        <div class="value-card">
-          <div class="value-icon">📊</div>
-          <h3>Organización personal</h3>
-          <p>Permite llevar control de gastos, presupuestos, inventarios personales, planificación de metas y administración de proyectos personales.</p>
+    </li>
+                <li><a href="index.html#contacto" class="cta nav-link" id="cotizarBtn">Cotízate</a></li>
+            </ul>
         </div>
-        <div class="value-card">
-          <div class="value-icon">🚀</div>
-          <h3>Emprendedores</h3>
-          <p>Ideal para quienes inician un negocio. Con Excel puedes controlar ventas, inventarios, costos, utilidades y flujo de efectivo sin necesidad de software complejo.</p>
+    </nav>
+
+    <!-- HERO ACADEMIA -->
+    <header class="hero-academia">
+        <h1>Academia IM</h1>
+        <p>Capacitación profesional en herramientas digitales para contadores, empresarios y emprendedores.</p>
+    </header>
+
+    <!-- SECCIÓN: CURSOS DE EXCEL -->
+    <section class="seccion-academia">
+        <h2>Cursos de Excel Profesional y Contable</h2>
+        <p>En <strong>Academia IM</strong> impartimos cursos de <strong>Microsoft Excel</strong> enfocados en el uso práctico dentro del mundo laboral, contable y empresarial. Nuestros cursos están diseñados tanto para personas que comienzan desde cero como para usuarios que desean perfeccionar sus habilidades.</p>
+        <p>Aprender Excel hoy en día es una de las habilidades más valoradas en el mercado laboral, ya que permite analizar información, automatizar procesos y tomar decisiones basadas en datos.</p>
+
+        <h3 style="color: var(--primary); margin-top: 40px; font-size: 1.5rem;">Beneficios de aprender con nosotros</h3>
+        <div class="grid-cards">
+            <div class="card">
+                <div class="card-content">
+                    <h4>💼 Mundo laboral</h4>
+                    <p>Excel es una de las herramientas más solicitadas en empresas. Dominarlo te permite destacar en áreas como contabilidad, administración, finanzas y análisis de datos.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h4>📊 Organización personal</h4>
+                    <p>Permite llevar control de gastos, presupuestos, inventarios personales, planificación de metas y administración de proyectos personales.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h4>🚀 Emprendedores</h4>
+                    <p>Ideal para quienes inician un negocio. Con Excel puedes controlar ventas, inventarios, costos, utilidades y flujo de efectivo sin necesidad de software complejo.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CURSOS DISPONIBLES -->
-  <section class="panel alt" aria-labelledby="oferta-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="oferta-title">Conoce nuestros cursos</h2>
-        <p>Aquí podrás ver nuestras promociones y próximos cursos disponibles.</p>
-      </div>
-      <div class="content-grid">
-        <article class="content-card">
-          <div class="content-icon">🟢</div>
-          <h3>Excel Básico–Intermedio</h3>
-          <p>El punto de partida ideal si nunca has usado Excel o quieres solidificar las bases: fórmulas, formatos y organización de datos.</p>
-          <a href="index.html#cotizador" class="btn primary">Preguntar por este curso</a>
-        </article>
-        <article class="content-card">
-          <div class="content-icon">🟡</div>
-          <h3>Excel Intermedio–Avanzado</h3>
-          <p>Tablas dinámicas, funciones de búsqueda y automatización de reportes para llevar tu manejo de datos al siguiente nivel.</p>
-          <a href="index.html#cotizador" class="btn primary">Preguntar por este curso</a>
-        </article>
-        <article class="content-card">
-          <div class="content-icon">🔵</div>
-          <h3>Excel para Negocios y Contabilidad</h3>
-          <p>Aplicación práctica de Excel al mundo contable y empresarial: flujo de efectivo, nómina, impuestos y control de costos.</p>
-          <a href="index.html#cotizador" class="btn primary">Preguntar por este curso</a>
-        </article>
-      </div>
-    </div>
-  </section>
+        <h3 style="color: var(--primary); margin-top: 50px; font-size: 1.5rem;" id="cursos">Próximos Cursos Disponibles</h3>
+        <p>Conoce nuestros niveles de capacitación diseñados para llevarte desde las bases hasta la automatización avanzada de datos contables.</p>
 
-  <!-- MANUALES -->
-  <section id="manuales" class="panel" aria-labelledby="manuales-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="manuales-title">Manuales de Uso</h2>
-        <p>Guías prácticas y manuales para aprender a utilizar nuestras herramientas y recursos digitales.</p>
-      </div>
-      <div class="content-grid" style="max-width:420px;margin-left:auto;margin-right:auto;">
-        <article class="content-card text-center">
-          <div class="content-icon">📘</div>
-          <h3>Manual próximamente</h3>
-          <p>Aquí se publicarán manuales descargables para nuestros sistemas y plantillas.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+        <div class="grid-cards">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Curso Básico-Intermedio">
+                </div>
+                <div class="card-content">
+                    <h4>Excel Básico – Intermedio</h4>
+                    <p>El punto de partida ideal si nunca has usado Excel o quieres solidificar las bases: fórmulas, formatos y organización de datos.</p>
+                    <a href="index.html#contacto" class="btn-academia">Preguntar por este curso</a>
+                </div>
+            </div>
 
-  <!-- BLOG ACADÉMICO -->
-  <section id="blog-academia" class="panel alt" aria-labelledby="blog-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="blog-title">Blog Académico</h2>
-        <p>Contenido educativo para contadores, estudiantes y empresarios.</p>
-      </div>
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Curso Intermedio-Avanzado">
+                </div>
+                <div class="card-content">
+                    <h4>Excel Intermedio – Avanzado</h4>
+                    <p>Tablas dinámicas, funciones de búsqueda y automatización de reportes para llevar tu manejo de datos al siguiente nivel.</p>
+                    <a href="index.html#contacto" class="btn-academia">Preguntar por este curso</a>
+                </div>
+            </div>
 
-      <div class="blog-grid">
-        <article class="blog-card">
-          <h3>El lenguaje invisible de las empresas: por qué Excel sigue siendo la habilidad reina</h3>
-          <p>Si entras a cualquier oficina o emprendimiento hoy mismo, notarás algo en común: hay una cuadrícula verde abierta en casi todas las pantallas.</p>
-          <p>A pesar del avance de la IA, Excel sigue siendo el lenguaje universal que mueve los datos. Muchos aprenden "picando botones", lo que genera errores que cuestan horas de trabajo manual.</p>
-          <p>Hoy las empresas han evolucionado hacia la nube. Ya sea con Google Sheets o Excel 365, la capacidad de colaborar en tiempo real y manejar hojas de cálculo compartidas es una exigencia básica del mercado laboral.</p>
-          <p>El salto profesional ocurre cuando dejas de mirar filas y empiezas a ver resultados estratégicos: dominar estas herramientas te permite gestionar inventarios, presupuestos y reportes desde cualquier lugar, conectando equipos y automatizando resultados al instante.</p>
-        </article>
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Curso Contable">
+                </div>
+                <div class="card-content">
+                    <h4>Excel Aplicado a Negocios y Contabilidad</h4>
+                    <p>Aplicación práctica de Excel al mundo contable y empresarial: flujo de efectivo, nómina, impuestos y control de costos.</p>
+                    <a href="index.html#contacto" class="btn-academia">Preguntar por este curso</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <article class="blog-card">
-          <h3>5 errores de Excel que te quitan tiempo (y cómo evitarlos)</h3>
-          <p>Dominar Excel no es memorizar mil fórmulas, sino evitar los malos hábitos que vuelven lento tu trabajo:</p>
-          <ul>
-            <li><strong>1. Cálculos manuales:</strong> escribir resultados a mano quita la automatización. Usa siempre funciones como SUMA o PROMEDIO.</li>
-            <li><strong>2. Datos sucios:</strong> mezclar formatos impide el análisis. La limpieza de datos es vital para reportes exactos.</li>
-            <li><strong>3. No fijar celdas ($):</strong> el error #1 del principiante. Usa referencias absolutas para automatizar procesos masivos.</li>
-            <li><strong>4. Búsqueda visual:</strong> no busques a ojo. Implementa BUSCARV o BUSCARX para cruzar tablas al instante.</li>
-            <li><strong>5. Muros de números:</strong> no satures de datos. Resume todo con Tablas Dinámicas para una lectura ejecutiva.</li>
-          </ul>
-        </article>
+    <!-- MANUALES DE USO -->
+    <section id="manuales" class="seccion-academia" style="background: var(--panel ); padding: 60px 20px; border-radius: var(--radius); border: 1px solid var(--accent);">
+        <h2>Manuales de Uso</h2>
+        <p>En esta sección encontrarás guías prácticas y manuales para aprender a utilizar nuestras herramientas y recursos digitales.</p>
 
-        <article class="blog-card">
-          <h3>Excel contable: control total de tu negocio e impuestos</h3>
-          <p>Para un emprendedor o emprendedora, el éxito no solo está en vender, sino en saber cuánto dinero queda realmente en el bolsillo. Excel es el "contador digital" que tu negocio necesita para dejar de adivinar y empezar a proyectar.</p>
-          <p>En Academia IM te enseñamos a construir el blindaje financiero de tu proyecto:</p>
-          <ul>
-            <li><strong>Flujo de Caja Real:</strong> controla ingresos y egresos para evitar sorpresas a fin de mes.</li>
-            <li><strong>Gestión de Impuestos:</strong> organiza tus facturas y gastos deducibles para que el SAT deje de ser una pesadilla.</li>
-            <li><strong>Costos y Utilidades:</strong> calcula automáticamente el precio de tus productos asegurando tu margen de ganancia.</li>
-          </ul>
-          <p>Dominar estas herramientas te permite realizar conciliaciones bancarias y auditorías preventivas en segundos. Un negocio con control es un negocio que puede crecer sin límites.</p>
-          <p class="callout">¿Listo para formalizar tu éxito? Escríbenos y descubre cómo hacer que los números siempre jueguen a tu favor.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+        <div class="grid-cards">
+            <div class="card">
+                <div class="card-content">
+                    <h4>Manuales de Sistemas y Plantillas IM</h4>
+                    <p>Guías descargables paso a paso para aprovechar al máximo nuestras plantillas en Excel y sistemas fiscales en el portal del SAT.</p>
+                    <a href="productos.html" class="btn-academia">Ver catálogos y recursos</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- FAQ ACADEMIA -->
-  <section id="faq-academia" class="panel" aria-labelledby="faq-academia-title">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="faq-academia-title">Preguntas frecuentes de Academia IM</h2>
-        <p>Todo lo que necesitas saber sobre nuestras capacitaciones.</p>
-      </div>
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>¿Los cursos incluyen material de apoyo?</summary>
-          <p>Sí, todos nuestros cursos incluyen las plantillas de Excel utilizadas en clase y guías en PDF para que puedas practicar por tu cuenta.</p>
-        </details>
-        <details class="faq-item">
-          <summary>¿Necesito conocimientos avanzados de Excel?</summary>
-          <p>No. Contamos con niveles desde básico hasta avanzado. Cada curso especifica el nivel requerido en su descripción.</p>
-        </details>
-        <details class="faq-item">
-          <summary>¿Entregan constancia de participación?</summary>
-          <p>Sí, al finalizar satisfactoriamente cualquier curso de la Academia IM, se te otorga una constancia digital que avala tus nuevos conocimientos.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+    <!-- BLOG ACADEMICO -->
+    <section id="blog-academia" class="seccion-academia">
+        <h2>Blog Académico</h2>
+        <p>Contenido educativo especializado para contadores, estudiantes y empresarios.</p>
 
-  <div class="container">
-    <div class="inline-cta">
-      <h3>¿Tienes dudas sobre qué curso te conviene?</h3>
-      <p>Escríbenos y con gusto te orientamos sobre el mejor curso para tu nivel y tus objetivos.</p>
-      <a id="ctaWhatsappAcademia" class="btn primary lg" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-    </div>
-  </div>
+        <div class="grid-cards">
+            <div class="card">
+                <div class="card-content">
+                    <h4>El lenguaje invisible de las empresas</h4>
+                    <p>Si entras a cualquier oficina hoy, notarás una cuadrícula verde abierta. A pesar de la IA, Excel sigue siendo el lenguaje universal que mueve los datos empresariales.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h4>5 Errores de Excel que te quitan tiempo</h4>
+                    <p>Evita cálculos manuales, datos sucios, no fijar celdas con ($), búsquedas visuales a ojo y saturar con muros de números.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h4>Excel Contable: Control Total del Negocio</h4>
+                    <p>Construye el blindaje financiero de tu proyecto controlando flujo de caja real, impuestos y márgenes de utilidad automáticos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</main>
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="seccion-academia" id="faq-academia">
+        <h2>Preguntas Frecuentes - Academia IM</h2>
+        <p>Todo lo que necesitas saber sobre nuestras capacitaciones y materiales de apoyo.</p>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-col">
-      <h4>IM Servicios Contables</h4>
-      <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;max-width:260px;">
-        Servicios contables, administrativos y asesoría financiera con soluciones tecnológicas.
-      </p>
-    </div>
-    <div class="footer-col">
-      <h4>Navegación</h4>
-      <a href="index.html#sobre">Quiénes Somos</a>
-      <a href="index.html#servicios">Servicios</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="productos.html">Productos</a>
-      <a href="comunidad.html">Comunidad</a>
-      <a href="academia.html">Academia IM</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contacto</h4>
-      <a id="footerCorreo" href="#">Correo directo a IM</a>
-      <a id="footerFacebook" href="#" target="_blank" rel="noopener">Facebook</a>
-      <a id="footerInstagram" href="#" target="_blank" rel="noopener">Instagram</a>
-      <a id="footerLinkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
-      <a id="footerTiktok" href="#" target="_blank" rel="noopener">TikTok</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© <span id="anioActual"></span> IM Servicios Contables. Todos los derechos reservados.</span>
-    <span>
-      <a id="footerTerminos" href="#" target="_blank" style="text-decoration:underline;">Términos y condiciones</a>
-      &nbsp;·&nbsp;
-      <a id="footerPrivacidad" href="#" target="_blank" style="text-decoration:underline;">Aviso de privacidad</a>
-    </span>
-  </div>
-</footer>
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <button class="faq-question">¿Los cursos incluyen material de apoyo? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>Sí, todos nuestros cursos incluyen las plantillas de Excel utilizadas en clase y guías en PDF para que puedas practicar por tu cuenta.</p>
+                </div>
+            </div>
 
-<a id="waFloat" class="wa-float" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="white" aria-hidden="true">
-    <path d="M16.001 3C8.821 3 3 8.821 3 16c0 2.546.74 5.026 2.14 7.16L3 29l5.99-2.1A12.94 12.94 0 0 0 16 29c7.18 0 13-5.821 13-13S23.181 3 16.001 3zm0 23.6a10.5 10.5 0 0 1-5.35-1.46l-.38-.22-3.56 1.25 1.16-3.67-.24-.38A10.48 10.48 0 1 1 16 26.6zm5.77-7.87c-.31-.16-1.82-.9-2.1-1-.28-.1-.48-.16-.68.16s-.78 1-.96 1.2c-.18.2-.36.22-.67.08-.31-.16-1.3-.48-2.48-1.52-.92-.82-1.54-1.84-1.72-2.15-.18-.31-.02-.48.14-.64.14-.14.31-.36.46-.54.16-.18.2-.31.3-.52.1-.2.05-.38-.03-.54-.08-.16-.68-1.64-.94-2.24-.25-.6-.5-.52-.68-.53h-.58c-.2 0-.52.08-.8.38-.28.31-1.04 1.02-1.04 2.48s1.06 2.87 1.2 3.07c.16.2 2.08 3.18 5.03 4.46.7.3 1.25.48 1.68.61.71.22 1.36.19 1.87.12.57-.08 1.82-.74 2.08-1.46.26-.72.26-1.34.18-1.46-.08-.12-.28-.2-.59-.36z"/>
-  </svg>
-</a>
+            <div class="faq-item">
+                <button class="faq-question">¿Necesito conocimientos avanzados de Excel? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>No. Contamos con niveles desde básico hasta avanzado. Cada curso especifica el nivel requerido en su descripción.</p>
+                </div>
+            </div>
 
-<script src="config/config.js"></script>
-<script src="js/main.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (typeof IM_CONFIG === 'undefined') return;
-    const base = `https://wa.me/${IM_CONFIG.contacto.whatsappNumero}`;
-    const msg = encodeURIComponent('Hola, quisiera más información sobre los cursos de Academia IM');
-    const el = document.getElementById('ctaWhatsappAcademia');
-    if (el) el.href = `${base}?text=${msg}`;
-  });
-</script>
+            <div class="faq-item">
+                <button class="faq-question">¿Entregan constancia de participación? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>Sí, al finalizar satisfactoriamente cualquier curso de la Academia IM, se te otorga una constancia digital que avala tus nuevos conocimientos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background: var(--primary); color: var(--primary-contrast); padding: 50px 20px 20px; margin-top: 80px;">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 40px;">
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 15px;">IM Servicios Contables</h4>
+                <p style="color: var(--accent-2); font-size: 0.9rem; line-height: 1.6;">Servicios contables, administrativos y asesoría financiera con soluciones tecnológicas e inteligentes.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 15px;">Navegación</h4>
+                <a href="index.html#sobre" style="color: var(--accent-2); display: block; margin-bottom: 8px; text-decoration: none;">Quiénes Somos</a>
+                <a href="index.html#servicios" style="color: var(--accent-2); display: block; margin-bottom: 8px; text-decoration: none;">Servicios</a>
+                <a href="catalogo.html" style="color: var(--accent-2); display: block; margin-bottom: 8px; text-decoration: none;">Catálogo</a>
+                <a href="productos.html" style="color: var(--accent-2); display: block; margin-bottom: 8px; text-decoration: none;">Productos</a>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 15px;">Contacto</h4>
+                <a href="mailto:im.contable29@gmail.com" style="color: var(--accent-2); display: block; margin-bottom: 8px; text-decoration: none;">Correo directo a IM</a>
+                <a href="https://www.facebook.com/share/18oyHU5iuT/?mibextid=wwXIfr" target="_blank" style="color: var(--accent-2 ); display: block; margin-bottom: 8px; text-decoration: none;">Facebook</a>
+                <a href="https://instagram.com/imservicioscontables/profilecard/?igsh=MXNiYTZpYjVjbXlmdQ==" target="_blank" style="color: var(--accent-2 ); display: block; text-decoration: none;">Instagram</a>
+            </div>
+        </div>
+        <div style="max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.9rem; color: var(--accent-2);">
+            © 2025 IM Servicios Contables. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Acordeón FAQ
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+    <script src="formulario.js"></script>
 </body>
 </html>

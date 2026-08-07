@@ -35,6 +35,72 @@
 
 <link rel="stylesheet" href="css/styles.css">
 
+<!-- Estilos propios de la sección "Comunidad IM" (agregar también a css/styles.css si se desea centralizar) -->
+<style>
+  .comunidad-im {
+    background: linear-gradient(135deg, #1f3b52 0%, #2c5271 100%);
+    color: #fff;
+    border-radius: 24px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  .comunidad-im .hero-eyebrow { color: #9fd8c7; }
+  .comunidad-im h2 { color: #fff; }
+  .comunidad-im h2 em { color: #9fd8c7; font-style: normal; }
+  .comunidad-im .lead { color: rgba(255,255,255,0.85); }
+
+  .comunidad-card {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 3rem 1rem;
+  }
+
+  .comunidad-highlights {
+    list-style: none;
+    margin: 1.25rem 0 1.75rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .comunidad-highlights li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.98rem;
+  }
+  .comunidad-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #9fd8c7;
+    color: #1f3b52;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .comunidad-visual .hero-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(6px);
+  }
+  .comunidad-visual .hero-card-label { color: rgba(255,255,255,0.7); }
+  .comunidad-visual .hero-card-value,
+  .comunidad-visual .hero-card-tag { color: #fff; }
+
+  @media (max-width: 820px) {
+    .comunidad-card { grid-template-columns: 1fr; padding: 2rem 1.25rem; }
+    .comunidad-im { border-radius: 16px; }
+  }
+</style>
+
 <!-- Schema.org -->
 <script type="application/ld+json">
 {
@@ -276,6 +342,49 @@
        feature flags estén en false (ver config/config.js). -->
   <div data-component="testimonios"></div>
   <div data-component="casos-exito"></div>
+
+  <!-- ============ COMUNIDAD IM ============ -->
+  <section id="comunidad" class="panel comunidad-im" aria-labelledby="comunidad-title">
+    <div class="container">
+      <div class="comunidad-card">
+        <div class="comunidad-copy">
+          <span class="hero-eyebrow">Comunidad IM</span>
+          <h2 id="comunidad-title">No estás solo con tus finanzas. <em>Únete a la comunidad.</em></h2>
+          <p class="lead">
+            Conecta con otros negocios y emprendedores, resuelve dudas fiscales y contables
+            en tiempo real, y accede a contenido exclusivo, tips y actualizaciones antes que nadie.
+          </p>
+
+          <ul class="comunidad-highlights">
+            <li><span class="comunidad-check">✓</span> Foro de dudas fiscales y contables</li>
+            <li><span class="comunidad-check">✓</span> Recursos, plantillas y guías exclusivas</li>
+            <li><span class="comunidad-check">✓</span> Novedades del ecosistema IM en primicia</li>
+          </ul>
+
+          <div class="hero-ctas">
+            <a href="comunidad.html" class="btn primary lg">Unirme a la comunidad IM →</a>
+          </div>
+        </div>
+
+        <div class="comunidad-visual" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-row">
+              <span class="hero-card-label">Miembros activos</span>
+              <span class="hero-card-tag">En crecimiento</span>
+            </div>
+            <div class="hero-card-row">
+              <span class="hero-card-label">Dudas resueltas</span>
+              <span class="hero-card-value">Cada semana</span>
+            </div>
+            <div class="hero-card-row">
+              <span class="hero-card-label">Acceso</span>
+              <span class="hero-card-value">100% gratuito</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ CTA / CONTACTO FINAL ============ -->
   <section id="contacto" class="panel alt" aria-labelledby="contacto-title">
